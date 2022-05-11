@@ -1,0 +1,177 @@
+
+/* Variables
+----------------------------------------------------------------------------- */
+
+:global
+  :root
+    --font-fallback BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-sans
+    --font-family 'Inter var', Inter, var(--font-fallback)
+    --outline-color rgba(#189ffb, 0.25)
+    --button-font-size 100%
+    --header-height 84px
+    --primary-color #189ffb
+
+  html
+    &[theme=light]
+      --background-color #f6f6f6
+
+      --text-color #202124
+      --link-color #222
+
+      --border 1px solid darken(#f6f6f6, 20%)
+
+      --text-selection-background #2a96ce
+      --text-selection-color #fff
+
+      --scrollbar-track-background #f6f6f6
+      --scrollbar-thumb-background #aaa
+      --scrollbar-thumb-border 1px solid #aaa
+      --scrollbar-corner-background #f6f6f6
+
+      --searchbar-background darken(#f6f6f6, 5%)
+      --searchbar-color #202124
+      --searchbar-border 1px solid darken(#f6f6f6, 20%)
+      --searchbar-placeholder-color #202124
+
+      --button-base-background #fff
+      --button-focus-background #eee
+      --button-color #000
+      --button-border 1px solid darken(#f6f6f6, 20%)
+
+      --drawer-background #f6f6f6
+      --drawer-section-color #444
+      --drawer-overlay-background rgba(#000, .4)
+
+    &[theme=dark]
+      --background-color #212121
+
+      --text-color #bdc1c6
+      --link-color #fff
+
+      --border 1px solid darken(#212121, 20%)
+
+      --text-selection-background rgba(#189ffb, 0.5)
+      --text-selection-color #fff
+
+      --scrollbar-track-background #212121
+      --scrollbar-thumb-background #4d4d4d
+      --scrollbar-thumb-border 1px solid #4d4d4d
+      --scrollbar-corner-background #212121
+
+      --searchbar-background lighten(#212121, 5%)
+      --searchbar-color #bdc1c6
+      --searchbar-border 1px solid darken(#212121, 20%)
+      --searchbar-placeholder-color #d4d4d4
+
+      --button-base-background darken(#212121, 20%)
+      --button-focus-background darken(#212121, 20%)
+      --button-color #fff
+      --button-border 1px solid darken(#212121, 40%)
+
+      --drawer-background #212121
+      --drawer-section-color #999
+      --drawer-overlay-background rgba(#000, .4)
+
+/* Reset
+----------------------------------------------------------------------------- */
+
+:global
+  *,
+  ::before,
+  ::after
+    box-sizing border-box
+    margin 0
+    padding 0
+
+  *,
+  *:focus,
+  *:hover,
+  *:active
+    outline none !important
+
+  html,
+  body
+    background-color var(--background-color)
+    color var(--text-color)
+    font-family var(--font-family)
+    font-size var(--font-size)
+    font-weight 400
+    line-height var(--line-height)
+    -ms-text-size-adjust 100%
+    -webkit-text-size-adjust 100%
+    -webkit-font-smoothing antialiased
+    -moz-osx-font-smoothing grayscale
+    -webkit-tap-highlight-color transparent
+    width 100%
+    height 100%
+    cursor default
+
+  html
+    scroll-behavior smooth
+
+  body
+    & *
+      text-rendering optimizeLegibility
+      font-feature-settings 'kern' 1
+
+      &::selection
+          background-color var(--text-selection-background)
+          color var(--text-selection-color)
+
+  a
+    color var(--link-color)
+    text-decoration none
+
+
+/* ScrollBar
+----------------------------------------------------------------------------- */
+
+:global
+  ::-webkit-scrollbar
+    -webkit-appearance none
+    height 14px
+    width 14px
+    &-button
+      display none
+    &-track
+      background-color var(--scrollbar-track-background)
+    &-thumb
+      background-color var(--scrollbar-thumb-background)
+      border-left var(--scrollbar-thumb-border)
+      border-radius 10px
+      border 2px solid var(--background-color)
+    &-corner
+      background-color var(--scrollbar-corner-background)
+
+
+/* Forms
+----------------------------------------------------------------------------- */
+
+/* disable autocomplete white color */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill
+  transition-delay 3600s
+
+/* disable cross icon */
+input[type='search']
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration
+    -webkit-appearance none
+
+/* App Styles
+----------------------------------------------------------------------------- */
+
+:global
+  #app
+    min-width 840px
+    max-width 1440px
+    min-height 100%
+    height auto
+    margin 0 auto
+
+    @media screen and (max-width: 840px)
+      min-width 320px
+
