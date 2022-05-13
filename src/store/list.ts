@@ -60,7 +60,16 @@ export const useListStore = defineStore({
         .json()
       await execute()
       if (!error.value) {
+        // sort list
         data.value.sort((a: ListItem, b: ListItem) => (a.id < b.id ? 1 : -1))
+
+        // add protocol if not defined
+        data.value.map((a: listItem) => {
+          const match = /^([a-z][a-z0-9.+-]*:)?(\/\/)?([\\/]+)?([\S\s]*)/i.exec(a.commit_link)
+          a.commit_link = match[1] ? match[1].toLowerCase() : `https://${a.commit_link}`
+          return a
+        })
+
         await this.setItems(data.value)
       } else {
         // "Failed to fetch"
