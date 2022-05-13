@@ -147,6 +147,7 @@ export default defineComponent({
       right 0
       bottom 0
       display block
+      background-color var(--searchbar-close-background)
       content ''
       border-radius 22px
       border var(--button-border)
