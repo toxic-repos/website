@@ -1,3 +1,4 @@
+import { nextTick } from 'vue'
 import { useColorMode } from '@vueuse/core'
 import type { UseTheme } from 'types'
 
@@ -15,8 +16,9 @@ export function useTheme(): UseTheme {
     }
   })
 
-  const themeToggle = () => {
+  const themeToggle = async () => {
     themeMode.value = themeMode.value === 'dark' ? 'light' : 'dark'
+    await nextTick()
   }
 
   return {
