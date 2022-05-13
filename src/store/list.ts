@@ -64,9 +64,9 @@ export const useListStore = defineStore({
         data.value.sort((a: ListItem, b: ListItem) => (a.id < b.id ? 1 : -1))
 
         // add protocol if not defined
-        data.value.map((a: listItem) => {
-          const match = /^([a-z][a-z0-9.+-]*:)?(\/\/)?([\\/]+)?([\S\s]*)/i.exec(a.commit_link)
-          a.commit_link = match[1] ? a.commit_link : `https://${a.commit_link}`
+        data.value.map((a: ListItem) => {
+          const match = /^([a-z][a-z0-9.+-]*:)?(\/\/)?([\\/]+)?([\S\s]*)/i.exec(a.commit_link)?.[1] ?? ''
+          a.commit_link = match ? a.commit_link : `https://${a.commit_link}`
           return a
         })
 
