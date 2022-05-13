@@ -66,7 +66,7 @@ export const useListStore = defineStore({
         // add protocol if not defined
         data.value.map((a: listItem) => {
           const match = /^([a-z][a-z0-9.+-]*:)?(\/\/)?([\\/]+)?([\S\s]*)/i.exec(a.commit_link)
-          a.commit_link = match[1] ? match[1].toLowerCase() : `https://${a.commit_link}`
+          a.commit_link = match[1] ? a.commit_link : `https://${a.commit_link}`
           return a
         })
 
