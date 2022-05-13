@@ -1,20 +1,3 @@
-<template>
-  <template v-if="!href">
-    <button :class="$style.button">
-      <span :class="$style.buttonContent">
-        <slot />
-      </span>
-    </button>
-  </template>
-  <template v-else>
-    <a :href="href" :class="$style.button" :title="title" target="_blank">
-      <span :class="$style.buttonContent">
-        <slot />
-      </span>
-    </a>
-  </template>
-</template>
-
 <script lang="ts">
 import { defineComponent } from 'vue'
 
@@ -31,6 +14,23 @@ export default defineComponent({
   }
 })
 </script>
+
+<template>
+  <template v-if="!href">
+    <button :class="$style.button">
+      <span :class="$style.buttonContent">
+        <slot />
+      </span>
+    </button>
+  </template>
+  <template v-else>
+    <a rel="noopener noreferrer" :href="href" :class="$style.button" :title="title" target="_blank">
+      <span :class="$style.buttonContent">
+        <slot />
+      </span>
+    </a>
+  </template>
+</template>
 
 <style lang="stylus" module>
 .button
