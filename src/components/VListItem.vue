@@ -180,7 +180,7 @@ export default defineComponent({
   font-size 1rem
   line-height 1.5rem
   height 100%
-  overflow overlay
+  overflow auto
   overflow-wrap anywhere
   padding 0 20px
   margin-right 5px
