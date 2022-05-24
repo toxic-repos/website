@@ -15,10 +15,10 @@ export const useListStore = defineStore({
     rawItems: []
   }),
   getters: {
-    isLoading(state) {
+    isLoading(state): boolean {
       return state.loading
     },
-    hasItems(state) {
+    hasItems(state): boolean {
       return state.rawItems.length > 0
     },
     getItemsType(state) {
@@ -41,14 +41,12 @@ export const useListStore = defineStore({
         }
       }
     },
-    items(state) {
+    items(state): ListItem[] {
       return state.rawItems
     }
   },
   actions: {
-    async loadItems(force?: boolean) {
-      force ??= false
-
+    async loadItems(force = false): Promise<void> {
       if (this.loading || (this.rawItems.length > 0 && !force)) {
         return
       }
@@ -77,10 +75,10 @@ export const useListStore = defineStore({
       }
       await this.setLoading(false)
     },
-    async setItems(items: ListItem[]) {
+    async setItems(items: ListItem[]): Promise<void> {
       this.rawItems = items
     },
-    async setLoading(value: boolean) {
+    async setLoading(value: boolean): Promise<void> {
       this.loading = value
     }
   }
