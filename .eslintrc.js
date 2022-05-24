@@ -17,21 +17,7 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'max-len': ['error', { code: 160, ignorePattern: 'd="([\\s\\S]*?)"' }],
-    'prettier/prettier': [
-      'error',
-      {
-        printWidth: 160,
-        tabWidth: 2,
-        useTabs: false,
-        semi: false,
-        singleQuote: true,
-        quoteProps: 'as-needed',
-        bracketSpacing: true,
-        trailingComma: 'none',
-        arrowParens: 'avoid',
-        endOfLine: 'lf'
-      }
-    ],
+    'prettier/prettier': 'error',
     quotes: [2, 'single', { avoidEscape: true }],
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-empty-function': 'off',
